@@ -1,0 +1,30 @@
+div.panel.panel-default{
+  border:0;
+  background:rgba(0,0,0,0.5);
+  color:#ffffff;
+  text-align:center;
+  position:relative;
+  transition:1s;
+  border-radius:15px;
+}
+
+div.panel-heading{
+  opacity:0;
+}
+
+h4{
+  color:#F9D505;
+}
+
+span{
+  margin:15px;
+}
+
+div.rem{
+  text-align:left;
+}
+
+div.panel.panel-default:hover{
+  background:rgba(0,0,0,0.7);
+}
+
