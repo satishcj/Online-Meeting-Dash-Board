@@ -22,7 +22,7 @@ session_start();
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li role="presentation"><a href="#"><strong>Help </strong></a></li>
-                    <li role="presentation"><a href="#"><strong>About Us</strong></a></li>
+                    <li role="presentation"><a href="index.php"><strong>Sign Up</strong></a></li>
                 </ul>
             </div>
         </div>
@@ -31,8 +31,8 @@ session_start();
         <div class="row">
             <div class="col-md-6 col-md-offset-0 cleft">
                 <div>
-                    <h1 class="motto"><strong>#WORKHARD </strong></h1>
-                    <h1 class="motto"><strong>ANYWHERE </strong></h1></div>
+                    <h1 class="motto"><strong># W O R K H A R D</strong></h1>
+                    <h1 class="motto"><strong>A N Y W H E R E</strong></h1></div>
             </div>
             <div class="col-md-4 col-md-offset-1 cright">
                 <div class="panel panel-default">
