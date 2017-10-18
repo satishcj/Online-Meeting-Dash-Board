@@ -22,7 +22,7 @@ session_start();
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li role="presentation"><a href="#"><strong>Help </strong></a></li>
-                    <li role="presentation"><a href="#"><strong>About Us</strong></a></li>
+                    <li role="presentation"><a href="login.php"><strong>Sign In</strong></a></li>
                 </ul>
             </div>
         </div>
