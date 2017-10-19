@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login5</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
@@ -22,7 +22,7 @@ session_start();
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li role="presentation"><a href="#"><strong>Help </strong></a></li>
-                    <li role="presentation"><a href="index.php"><strong>Sign Up</strong></a></li>
+                    <li role="presentation"><a href="signup.php"><strong>Sign Up</strong></a></li>
                 </ul>
             </div>
         </div>
@@ -32,7 +32,8 @@ session_start();
             <div class="col-md-6 col-md-offset-0 cleft">
                 <div>
                     <h1 class="motto"><strong># W O R K H A R D</strong></h1>
-                    <h1 class="motto"><strong>A N Y W H E R E</strong></h1></div>
+                    <h1 class="motto"><strong>A N Y W H E R E</strong></h1>
+                </div>
             </div>
             <div class="col-md-4 col-md-offset-1 cright">
                 <div class="panel panel-default">
@@ -47,9 +48,20 @@ session_start();
                                 <input class="form-control" type="password" name="pwd" placeholder="Password">
                             </div>
                             <div class="form-group">
+                                <h5 style="color: red">
+                                    <?php
+                                        if (isset($_SESSION['res1']))
+                                        {
+                                            $temp=$_SESSION['res1'];
+                                            echo "$temp";
+                                        }
+                                    ?>
+                                </h5>
+                            </div>
+                            <div class="form-group">
                                 <button class="btn btn-default btn-primary" type="submit" name="submit">Sign In</button>
                             </div>
-                            <div class="form-group"><a href="index.php"><strong>Don't have an account yet? Sign Up</strong></a></div>
+                            <div class="form-group"><a href="signup.php"><strong>Don't have an account yet? Sign Up</strong></a></div>
                         </form>
                     </div>
                 </div>
