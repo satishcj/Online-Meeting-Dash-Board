@@ -2,74 +2,133 @@
 session_start();
 ?>
 
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login4</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <meta name="description" content="A layout example that shows off a responsive product landing page.">
+    <title>Landing Page</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/marketing.css">
+    
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#"><strong>ONLINE MEETING PORTAL</strong></a>
-                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="">ONLINE MEETING PORTAL</a>
+
+            <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="login.php" class="pure-menu-link">Sign In</a></li>
+            <li class="pure-menu-item"><a href="signup.php" class="pure-menu-link">Sign Up</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="splash-container">
+    <div class="splash">
+        <h1 class="splash-head">#W O R K H A R D<br>A N Y W H E R E</h1>
+        <p class="splash-subhead">
+            Breaking limits in the way of meetings
+        </p>
+        <p>
+            <a href="signup.php" class="pure-button pure-button-primary">Get Started</a>
+        </p>
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <div class="content">
+        <h2 class="content-head is-center">Why Choose Us?</h2>
+
+        <div class="pure-g">
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+                <h3 class="content-subhead">
+                    <i class="fa fa-rocket"></i>
+                    Get Started Quickly
+                </h3>
+                <p>
+                    Just join and start your meeting without any boundaries or formalities.	Create schedules and appointments, notify other members and much more!
+                </p>
             </div>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation"><a href="#"><strong>Help </strong></a></li>
-                    <li role="presentation"><a href="login.php"><strong>Sign In</strong></a></li>
-                </ul>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-mobile"></i>
+                    Responsive Layouts
+                </h3>
+                <p>
+                    Our website is customized for mobile and tablet views. So no matter where you are, or what device you use, we're just a click away!
+                </p>
             </div>
-        </div>
-    </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-0 cleft">
-                <div>
-                    <iframe width="560" height="315" allowfullscreen="" frameborder="0" src="vid1.mp4"></iframe>
-                </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-th-large"></i>
+                    Modular
+                </h3>
+                <p>
+                    Our website is divided into various modules to help you get started easily and provide better accessibility to the users.
+                </p>
             </div>
-            <div class="col-md-4 col-md-offset-1 cright">
-                <div class="panel panel-default">
-                    <div class="panel-heading"></div>
-                    <h4 class="h2panel">CREATE NEW ACCOUNT</h4>
-                    <div class="panel-body">
-                        <form action="includes/signup.inc.php" method="POST">
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="firstname" placeholder="Firstname">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="text" name="lastname" placeholder="Lastname">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="tel" name="phone" placeholder="Phone Number">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="email" name="email" placeholder="E-Mail">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="password" name="pwd" placeholder="Create Password">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="password" name="rpwd" placeholder="Re-enter Password">
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-default btn-primary" type="submit" name="submit"><strong>S</strong>ignup </button>
-                            </div>
-                            <div class="form-group"><a href="login.php"><strong>Have an account already? Sign in</strong></a></div>
-                        </form>
-                    </div>
-                </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-check-square-o"></i>
+                    Smooth and Prompt
+                </h3>
+                <p>
+                    Response time is very less and our site loads before you know it!
+                </p>
             </div>
         </div>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-</body>
 
+    <div class="ribbon l-box-lrg pure-g">
+        <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+            <img width="300" alt="File Icons" class="pure-img-responsive" src="assets/img/file-icons.png">
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+
+            <h2 class="content-head content-head-ribbon">Standard File Type Upload/Download</h2>
+
+            <p>
+                We support standard file types like PDF, DOC, DOCX, XLS, etc. We are committed to provide a great user experiance and use the latest tech for the betterment of our website!
+            </p>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2 class="content-head is-center">ABOUT US</h2>
+
+        <div class="pure-g">
+            
+
+            <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                <h4>Developing Team</h4>
+                <p>
+                    We're a team of 3 developers:<br>
+                    Dipanjan | Phone: +91-8013758776 | E-Mail:dipanjan131@gmail.com<br>
+                    Arup | Phone: +91-9564042769 | E-Mail:arupkbiswas023@gmail.com<br>
+                    Venkatesh | Phone: +91-9342120091 | E-Mail:kakalwarvenkatesh94@gmail.com<br>
+                </p>
+
+                <h4>More Information</h4>
+                <p>
+                    This website along with all its components is a part of project for the subject "Software Engineering" in First Semester of Masters Degree Course in Computer Science and Engineering, VIT University
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer l-box is-center">
+        © Copyright VIT University
+    </div>
+
+</div>
+
+</body>
 </html>
