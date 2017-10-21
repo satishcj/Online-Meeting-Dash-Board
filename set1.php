@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Info</title>
+    <title>set1</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.set1.css">
 </head>
@@ -16,7 +16,7 @@ session_start();
 <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
-            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#"><strong>ONLINE MEETING PORTAL</strong></a>
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#"><strong>ONLINE MEETING</strong></a>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="navcol-1">
@@ -70,14 +70,26 @@ session_start();
                                 <div class="col-md-3 col-md-offset-0 col-inf-r">
                                     <h4 class="text-left"><strong>First Name:</strong></h4></div>
                                 <div class="col-md-3 col-inf-r">
-                                    <h4 class="text-left">User Firstname</h4></div>
+                                    <h4 class="text-left">
+                                    <?php
+                                        if (isset($_SESSION['u_email']))
+                                        {
+                                            $temp = $_SESSION['u_firstname'] ;
+                                            echo "$temp";
+                                        }
+                                        else
+                                        {
+                                            echo "User First Name";
+                                        }
+                                    ?>
+                                    </h4></div>
                                 <div class="col-md-6">
                                     <form action="includes/set1.inc1.php" method="POST">
                                         <div class="col-md-8 input-col col-inf-r">
-                                            <input class="form-control" type="text" placeholder="New Last Name">
+                                            <input class="form-control" type="text" name="firstname" placeholder="New First Name">
                                         </div>
                                         <div class="col-md-2 col-inf-r">
-                                            <button class="btn btn-default" type="button">Change </button>
+                                            <button class="btn btn-default" type="submit" name="submit">Change </button>
                                         </div>
                                     </form>
                                 </div>
@@ -86,30 +98,26 @@ session_start();
                                 <div class="col-md-3 col-md-offset-0 col-inf-r">
                                     <h4 class="text-left"><strong>Last Name:</strong></h4></div>
                                 <div class="col-md-3 col-inf-r">
-                                    <h4 class="text-left">User Lastname</h4></div>
+                                    <h4 class="text-left">
+                                    <?php
+                                        if (isset($_SESSION['u_email']))
+                                        {
+                                            $temp = $_SESSION['u_lastname'] ;
+                                            echo "$temp";
+                                        }
+                                        else
+                                        {
+                                            echo "User Last Name";
+                                        }
+                                    ?>
+                                    </h4></div>
                                 <div class="col-md-6">
-                                    <form>
+                                    <form action="includes/set1.inc2.php" method="POST">
                                         <div class="col-md-8 input-col col-inf-r">
-                                            <input class="form-control" type="text" placeholder="New Last Name">
+                                            <input class="form-control" type="text" name="lastname" placeholder="New Last Name">
                                         </div>
                                         <div class="col-md-2 col-inf-r">
-                                            <button class="btn btn-default" type="button">Change </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="row row-right">
-                                <div class="col-md-3 col-md-offset-0 col-inf-r">
-                                    <h4 class="text-left"><strong>E-Mail </strong></h4></div>
-                                <div class="col-md-3 col-inf-r">
-                                    <h4 class="text-left">User E-Mail</h4></div>
-                                <div class="col-md-6">
-                                    <form>
-                                        <div class="col-md-8 input-col col-inf-r">
-                                            <input class="form-control" type="email" placeholder="New E-Mail">
-                                        </div>
-                                        <div class="col-md-2 col-inf-r">
-                                            <button class="btn btn-default" type="button">Change </button>
+                                            <button class="btn btn-default" type="submit" name="submit">Change </button>
                                         </div>
                                     </form>
                                 </div>
@@ -118,17 +126,69 @@ session_start();
                                 <div class="col-md-3 col-md-offset-0 col-inf-r">
                                     <h4 class="text-left"><strong>Phone </strong></h4></div>
                                 <div class="col-md-3 col-inf-r">
-                                    <h4 class="text-left">User Phone</h4></div>
+                                    <h4 class="text-left">
+                                    <?php
+                                        if (isset($_SESSION['u_email']))
+                                        {
+                                            $temp = $_SESSION['u_phone'] ;
+                                            echo "$temp";
+                                        }
+                                        else
+                                        {
+                                            echo "User Phone";
+                                        }
+                                    ?>
+
+                                    </h4></div>
                                 <div class="col-md-6">
-                                    <form>
+                                    <form action="includes/set1.inc3.php" method="POST">
                                         <div class="col-md-8 input-col col-inf-r">
-                                            <input class="form-control" type="tel" placeholder="New Number">
+                                            <input class="form-control" type="tel" name="phone" placeholder="New Number">
                                         </div>
                                         <div class="col-md-2 col-inf-r">
-                                            <button class="btn btn-default" type="button">Change </button>
+                                            <button class="btn btn-default" name="submit" type="submit">Change </button>
                                         </div>
                                     </form>
                                 </div>
+                            </div>
+                            <div class="row row-right">
+                                <div class="col-md-3 col-md-offset-0 col-inf-r">
+                                    <h4 class="text-left"><strong>E-Mail </strong></h4></div>
+                                <div class="col-md-3 col-inf-r">
+                                    <h4 class="text-left">
+                                    <?php
+                                        if (isset($_SESSION['u_email']))
+                                        {
+                                            $temp = $_SESSION['u_email'] ;
+                                            echo "$temp";
+                                        }
+                                        else
+                                        {
+                                            echo "User E-Mail";
+                                        }
+                                    ?>
+                                    </h4></div>
+                                <div class="col-md-6">
+                                    <form>
+                                        <div class="col-md-8 input-col col-inf-r">
+                                            <input class="form-control" type="email" name="email" placeholder="New E-Mail">
+                                        </div>
+                                        <div class="col-md-2 col-inf-r">
+                                            <button class="btn btn-default" name="submit" type="submit">Change </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row row-right">
+                                <h5 style="color: red">
+                                    <?php
+                                        if (isset($_SESSION['sres']))
+                                        {
+                                            $temp=$_SESSION['sres'];
+                                            echo "$temp";
+                                        }
+                                    ?>
+                                </h5>
                             </div>
                         </div>
                     </div>
