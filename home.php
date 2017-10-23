@@ -37,7 +37,18 @@ session_start();
                         </strong></a></li>
                         <li role="presentation"><a href="home.php"><strong>Home </strong></a></li>
                         <li role="presentation"><a href="set1.php"><strong>Settings </strong></a></li>
-                        <li role="presentation"><a href="includes/logout.inc.php"><strong>Logout </strong></a></li>
+                        <li role="presentation"><a href="includes/logout.inc.php"><strong>
+                        <?php
+                        		if (isset($_SESSION['u_email']))
+                        		{
+                        			echo "Logout";
+                        		}
+                        		else
+                        		{
+                        			echo "Login";
+                        		}
+                        	?>
+                        </strong></a></li>
                         
                     </ul>
                 </div>
