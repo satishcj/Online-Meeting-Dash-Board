@@ -1,3 +1,8 @@
+
+<?php
+session_start();
+$_SESSION['sres']=NULL;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,13 +14,47 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-default"> 
-        <div class="container-fluid">
-            <div class="navbar-header"><a class="navbar-brand navbar-link" href="#"><strong>ONLINE MEETING PORTAL</strong></a>
-                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+	    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header"><a class="navbar-brand navbar-link" href="#"><strong>ONLINE MEETING PORTAL</strong></a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav navbar-right">
+                       	 <li role="presentation"><a href=""><strong>
+                        	<?php
+                        		if (isset($_SESSION['u_email']))
+                        		{
+                        			$temp = $_SESSION['u_firstname'] ;
+                        			echo "Hello $temp";
+                        		}
+                        		else
+                        		{
+                        			echo "You're not logged in";
+                        		}
+                        	?>
+                        </strong></a></li>
+                        <li role="presentation"><a href="home.php"><strong>Home </strong></a></li>
+                        <li role="presentation"><a href="set1.php"><strong>Settings </strong></a></li>
+                        <li role="presentation"><a href="includes/logout.inc.php"><strong>
+                        	<?php
+                        		if (isset($_SESSION['u_email']))
+                        		{
+                        			echo "Logout";
+                        		}
+                        		else
+                        		{
+                        			echo "Login";
+                        		}
+                        	?>
+                        </strong></a></li>
+                        
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
 	<div class="container" style="width: 500px; background: #000000; opacity: 0.5; margin-top: 100px ">
 		<div class="row">
@@ -114,15 +153,16 @@
 
 			<div class="row">
 				<div class="col col-md-4">
-					<input type="Button" name="loc" value="send">
+					<input type="Button" name="btn1" value="send">
 				</div>
 				<div class="col col-md-8">
-					<input type="Button" name="loc" value="cancel">
+					<input type="Button" name="btn2" value="cancel">
 				</div>
 			</div>
 		</form>
 		
 	</div>
-		
+	<script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

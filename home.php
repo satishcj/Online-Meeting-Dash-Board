@@ -38,7 +38,7 @@ session_start();
                         <li role="presentation"><a href="home.php"><strong>Home </strong></a></li>
                         <li role="presentation"><a href="set1.php"><strong>Settings </strong></a></li>
                         <li role="presentation"><a href="includes/logout.inc.php"><strong>
-                        <?php
+                        	<?php
                         		if (isset($_SESSION['u_email']))
                         		{
                         			echo "Logout";
@@ -55,6 +55,23 @@ session_start();
             </div>
         </nav>
     </header>
+    <form method="get" action="/onlinemeeting/invite.php">
+        <div class="container-con" style="opacity: 0.7;">
+            <div class="container-btn">
+                <button type="sumbit" 
+                    style="background-color: #000; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 18px;">
+                    Send Invite
+                </button>     
+            </div>
+        </div>
+    </form>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
