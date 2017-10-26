@@ -18,7 +18,7 @@ if (isset($_POST['submit']))
 		header("location: ../index.php?signup=$nameempty");
 		exit();
 	}
-	if (empty($email)) 
+	elseif (empty($email)) 
 	{
 		header("location: ../index.php?signup=emailempty");
 		exit();
