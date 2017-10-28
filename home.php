@@ -72,7 +72,7 @@ session_start();
             </div>
         </div>
     </form>
-            <form method="get" action="/KK\onlinemeeting/meetingagenda.php">
+            <form method="get" action="/onlinemeeting/meetingagenda.php">
         <div class="container-con" style="opacity: 0.7;">
             <div class="container-btn">
                 <button type="sumbit" 
