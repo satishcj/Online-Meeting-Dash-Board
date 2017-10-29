@@ -55,6 +55,91 @@ session_start();
             </div>
         </nav>
     </header>
+    <form method="get" action="/onlinemeeting/invite.php">
+        <div class="container-con" style="opacity: 0.7;">
+            <div class="container-btn">
+                <button type="sumbit" 
+                    style="background-color: #000; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 18px;">
+                    Send Invite
+                </button>     
+            </div>
+        </div>
+    </form>
+        <form method="get" action="/onlinemeeting/meetingagenda.php">
+        <div class="container-con" style="opacity: 0.7;">
+            <div class="container-btn">
+                <button type="sumbit" 
+                    style="background-color: #000; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 18px;">
+                    Meeting Agenda
+                </button>     
+            </div>
+        </div>
+    </form>
+        <form method="get" action="/onlinemeeting/taskassignment.php">
+        <div class="container-con" style="opacity: 0.7;">
+            <div class="container-btn">
+                <button type="sumbit" 
+                    style="background-color: #000; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 18px;">
+                    Task Assignment
+                </button>     
+            </div>
+        </div>
+    </form>
+        <form method="get" action="/onlinemeeting/registerorg.php">
+        <div class="container-con" style="opacity: 0.7;">
+            <div class="container-btn">
+                <button type="sumbit" 
+                    style="background-color: #000; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 18px;">
+                    Register Employee
+                </button>     
+            </div>
+        </div>
+    </form>
+<form method="get" action="/onlinemeeting/registerorg.php">
+        <div class="container-con" style="opacity: 0.7;">
+            <div class="container-btn">
+                <button type="sumbit" 
+                    style="background-color: #000; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 18px;">
+                    Register Organization
+                </button>     
+            </div>
+        </div>
+    </form>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
