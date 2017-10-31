@@ -56,7 +56,7 @@ $_SESSION['sres']=NULL;
         </nav>
     </header>
 
-	<div class="container" style="width: 500px; background: #000000; opacity: 0.5; margin-top: 100px ">
+	<div class="container" style="width: 500px; background: #000000; opacity: 0.5; margin-top: 60px ">
 		<div class="row">
 			<div class="col col-md-12" style="text-align: center; color: #ffffff">
 				<strong>
@@ -69,10 +69,18 @@ $_SESSION['sres']=NULL;
 		<form>
 			<div class="row">
 				<div class="col col-md-4" style="text-align: center; color: #ffffff;">
+					<h5>Recipant Email ID:</h5>
+				</div>
+				<div class="col col-md-8">
+					<input type="email" name="mail" placeholder="Email">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-md-4" style="text-align: center; color: #ffffff;">
 					<h5>Meeting Request ID:</h5>
 				</div>
 				<div class="col col-md-8">
-					<input type="email" name="mail" placeholder="ID">
+					<input type="text" name="mail" placeholder="Meeting ID">
 				</div>
 			</div>
 			<div class="row">
@@ -120,7 +128,7 @@ $_SESSION['sres']=NULL;
 					<h5>Date:</h5>
 				</div>
 				<div class="col col-md-8">
-					<input type="Date" name="date">
+					<input type="date" name="date">
 				</div>
 			</div>
 			
@@ -137,8 +145,8 @@ $_SESSION['sres']=NULL;
 				<div class="col col-md-4" style="text-align: center; color: #ffffff;">
 					<h5>Prerequisite document:</h5>
 				</div>
-				<div class="col col-md-8">
-					<input type="Button" name="doc" value="choose file">
+				<div class="col col-md-8" style="padding: 15px">
+					<input type="file" name="doc" value="choose file">
 				</div>
 			</div>
 
@@ -151,16 +159,15 @@ $_SESSION['sres']=NULL;
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col col-md-4">
-					<input type="Button" name="btn1" value="send">
+			<div class="col-lg-12 col-xs-12">
+				<div class="btn col-lg-6 col-xs-6">
+					<button type="button" class="btn col-lg-8 col-xs-8">Send</button>
 				</div>
-				<div class="col col-md-8">
-					<input type="Button" name="btn2" value="cancel">
+				<div class="btn col-lg-6 col-xs-6">
+					<button type="button" class="btn col-lg-8 col-xs-8" style="left: 70px">Cancel</button>
 				</div>
 			</div>
 		</form>
-		
 	</div>
 	<script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
