@@ -54,8 +54,7 @@ $_SESSION['sres']=NULL;
             </div>
         </nav>
 </header>
-
-	<div class="container" style="width: 500px; background: #000; opacity: 0.6; margin-top: 200px ">
+	<div class="container" style="width: 500px; background: #000; opacity: 0.6; margin-top: 40px ">
 		<div class="row">
 			<div class="col col-md-12" style="text-align: center; color: #fff">
 				<strong>
@@ -150,8 +149,17 @@ $_SESSION['sres']=NULL;
 </div>
 		</div>
 <form onsubmit="return checkForm(this);">
-<input type="checkbox" required name="terms"><p style="text-align: center; color: #fff">I accept the <u>Terms and Conditions</u></p>
-<p><input type="submit"></p>
+	<div class="row">
+			<div class="col col-md-4" style="text-align: center; color: #fff">
+				<input type="checkbox" required name="terms">
+			</div>
+			<div class="col col-md-8">
+				<p style="text-align: center; color: #fff">I accept the <u>Terms and Conditions</u></p>
+			</div>
+	</div>
+	<div class="row">
+		<p><input type="submit" ></p>
+	</div>
 </form>
 	<script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
