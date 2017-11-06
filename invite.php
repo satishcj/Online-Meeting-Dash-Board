@@ -146,7 +146,7 @@ $_SESSION['sres']=NULL;
 					<h5>Prerequisite document:</h5>
 				</div>
 				<div class="col col-md-8" style="padding: 15px">
-					<input type="file" name="doc" value="choose file">
+					<input type="file" name="doc" value="choose file" style=" color: #fff">
 				</div>
 			</div>
 
