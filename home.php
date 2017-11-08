@@ -9,139 +9,97 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/semanticui/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/home.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header"><a class="navbar-brand navbar-link" href="#"><strong>ONLINE MEETING PORTAL</strong></a>
-                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                </div>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav navbar-right">
-                       	 <li role="presentation"><a href=""><strong>
-                        	<?php
-                        		if (isset($_SESSION['u_email']))
-                        		{
-                        			$temp = $_SESSION['u_firstname'] ;
-                        			echo "Hello $temp";
-                        		}
-                        		else
-                        		{
-                        			echo "You're not logged in";
-                        		}
-                        	?>
-                        </strong></a></li>
-                        <li role="presentation"><a href="home.php"><strong>Home </strong></a></li>
-                        <li role="presentation"><a href="set1.php"><strong>Settings </strong></a></li>
-                        <li role="presentation"><a href="includes/logout.inc.php"><strong>
-                        	<?php
-                        		if (isset($_SESSION['u_email']))
-                        		{
-                        			echo "Logout";
-                        		}
-                        		else
-                        		{
-                        			echo "Login";
-                        		}
-                        	?>
-                        </strong></a></li>
-                        
-                    </ul>
-                </div>
+	<div>
+        <div class="ui top secondary pointing hidden menu stackable">
+            <a class="item">
+                <img class="ui avatar image" src="assets/feather/zap.svg">
+                <strong>ONLINE MEETING PORTAL</strong>
+            </a>
+            <div class="right menu">
+                <a class="active item" href="home.php">
+                    <img class="ui avatar image" src="assets/feather/home.svg">
+                    Home
+                </a>
+                <a class="ui item">
+                    <img class="ui avatar image" src="assets/feather/user.svg">
+                    <?php
+                        if (isset($_SESSION['u_email']))
+                        {
+                            $temp = $_SESSION['u_firstname'] ;
+                            echo "Hello $temp";
+                        }
+                        else
+                        {
+                            echo "You're not logged in";
+                        }
+                    ?>
+                </a>
+                <a class="ui item" href="set1.php">
+                    <img class="ui avatar image" src="assets/feather/settings.svg">
+                    Settings
+                </a>
+                <a class="ui item" href="includes/logout.inc.php">
+                    <img class="ui avatar image" src="assets/feather/log-out.svg">
+                    <?php
+                        if (isset($_SESSION['u_email']))
+                        {
+                            echo "Logout";
+                        }
+                        else
+                        {
+                            echo "Login";
+                        }
+                    ?>
+                </a>
             </div>
-        </nav>
-    </header>
-    <form method="get" action="/onlinemeeting/invite.php">
-        <div class="container-con" style="opacity: 0.7;">
-            <div class="container-btn">
-                <button type="sumbit" 
-                    style="background-color: #000; /* Green */
-                    border: none;
-                    color: white;
-                    padding: 15px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 18px;">
-                    Send Invite
-                </button>     
-            </div>
-        </div>
-    </form>
-        <form method="get" action="/onlinemeeting/meetingagenda.php">
-        <div class="container-con" style="opacity: 0.7;">
-            <div class="container-btn">
-                <button type="sumbit" 
-                    style="background-color: #000; /* Green */
-                    border: none;
-                    color: white;
-                    padding: 15px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 18px;">
-                    Meeting Agenda
-                </button>     
-            </div>
-        </div>
-    </form>
-        <form method="get" action="/onlinemeeting/taskassignment.php">
-        <div class="container-con" style="opacity: 0.7;">
-            <div class="container-btn">
-                <button type="sumbit" 
-                    style="background-color: #000; /* Green */
-                    border: none;
-                    color: white;
-                    padding: 15px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 18px;">
-                    Task Assignment
-                </button>     
-            </div>
-        </div>
-    </form>
-        <form method="get" action="/onlinemeeting/registerorg.php">
-        <div class="container-con" style="opacity: 0.7;">
-            <div class="container-btn">
-                <button type="sumbit" 
-                    style="background-color: #000; /* Green */
-                    border: none;
-                    color: white;
-                    padding: 15px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 18px;">
-                    Register Employee
-                </button>     
-            </div>
-        </div>
-    </form>
-<form method="get" action="/onlinemeeting/registerorg.php">
-        <div class="container-con" style="opacity: 0.7;">
-            <div class="container-btn">
-                <button type="sumbit" 
-                    style="background-color: #000; /* Green */
-                    border: none;
-                    color: white;
-                    padding: 15px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 18px;">
-                    Register Organization
-                </button>     
-            </div>
-        </div>
-    </form>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-</body>
+        </div>  
+    </div>
 
+	<br><br>
+	
+	<div class="ui centered grid stackable">
+		
+		<div class="three wide column">
+			<div class="ui vertical menu" style="width: 100%;">
+			  	<a class="active item">
+			    	<h4 class="ui header">Dashboard</h4>
+			    	<p>You can check all your activities here</p>
+			  	</a>
+			  	<a class="item" href="home1.php">
+			    	<h4 class="ui header">Add an Organization</h4>
+			    	<p>You can add an organization using this link</p>
+			  	</a>
+			  	<a class="item" href="home2.php">
+			    	<h4 class="ui header">Create a Meeting</h4>
+			    	<p>Create a meeting appointment with your employees</p>
+			  	</a>
+			</div>
+		</div>
+
+		<div class="ten wide column">
+			
+			<div>
+				<h2 class="ui center aligned icon header centered">
+					<i class="dashboard icon"></i>
+					<div class="content">
+						Dashboard
+					</div>
+					<div class="sub header">
+						See all your activities here
+					</div>
+				</h2>
+			</div>
+
+			<div class="ui divider"></div>
+
+		</div>
+	
+	</div>
+
+</body>
 </html>
