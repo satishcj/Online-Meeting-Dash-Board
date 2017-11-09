@@ -13,6 +13,7 @@ if (isset($_POST['submit']))
 	if (empty($email)||empty($pwd))
 	{
 		header("Location: ../login.php?login=empty") ;
+		$_SESSION['res1'] = 'Please fill the form properly' ;
 		exit() ;	
 	}
 	else
@@ -23,6 +24,7 @@ if (isset($_POST['submit']))
 		if ($resultCheck<1)
 		{
 			header("Location: ../login.php?login=norecords") ;
+			$_SESSION['res1'] = 'No Records' ;
 			exit() ;
 		}
 		else
@@ -34,6 +36,7 @@ if (isset($_POST['submit']))
 				if ($hashedPwdCheck == false)
 				{
 					header("Location: ../login.php?login=pwderror") ;
+					$_SESSION['res1'] = 'You have entered an incorrect password' ;
 					exit() ;
 				}
 				elseif($hashedPwdCheck == true)
@@ -43,7 +46,8 @@ if (isset($_POST['submit']))
 					$_SESSION['u_firstname'] = $row['user_firstname'] ;
 					$_SESSION['u_lastname'] = $row['user_lastname'] ;
 					$_SESSION['u_phone'] = $row['user_phone'] ;
-					header("Location: ../login.php?login=success") ;
+					$_SESSION['u_id'] = $row['user_id'] ;
+					header("Location: ../home.php") ;
 					exit() ;
 				}
 			}
