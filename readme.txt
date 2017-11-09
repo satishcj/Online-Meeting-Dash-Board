@@ -17,6 +17,7 @@ CREATE TABLE users
     user_email varchar(256) NOT NULL UNIQUE,
     user_pwd varchar(256) NOT NULL
 );
+
 --------------------------------------------------------------------------
 
 Table 2: org
@@ -34,4 +35,21 @@ CREATE TABLE org
     org_phone varchar(15),
     org_zip varchar(10),
     org_site varchar(256)
+);
+
+--------------------------------------------------------------------------
+
+Table 3: meeting
+SQL Query Structure: (Just Copy the following and Paste to Execute)
+
+CREATE TABLE meeting
+(
+    meet_id int(5) AUTO_INCREMENT PRIMARY KEY,
+    meet_admin int(5) NOT NULL,
+    meet_topic varchar(256) NOT NULL,
+    meet_subject varchar(256)NOT NULL,
+    meet_host varchar(128) NOT NULL,
+    meet_obj varchar(1024) NOT NULL,
+    meet_loc varchar(128) NOT NULL,
+    meet_org int(5)
 );
