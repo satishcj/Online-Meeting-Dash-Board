@@ -9,14 +9,14 @@
 		if (empty($lastname))
 		{
 			header("location: ../set1.php?set1=lastnameempty");
-			$_SESSION['sres'] = 'Form Empty' ;
+			$_SESSION['sres1'] = 'Form Empty' ;
 			exit();
 		}
 		else
 		{
 			if(!preg_match("/^[a-zA-Z]*$/",$lastname))
 			{
-				$_SESSION['sres'] = 'Invalid Entry' ;
+				$_SESSION['sres1'] = 'Invalid Entry' ;
 				header("location: ../set1.php?set1=lastnameinvalid");
 				exit();
 			}
@@ -25,7 +25,7 @@
 				$temp=$_SESSION['u_email'] ;
 				$nsql="UPDATE users SET user_lastname='$lastname' WHERE user_email='$temp' " ;
 				mysqli_query($conn,$nsql) ;
-				$_SESSION['sres'] = 'Profile Updated Successfully' ;
+				$_SESSION['sres1'] = 'Profile Updated Successfully' ;
 				$_SESSION['u_lastname'] = $lastname ;
 				header("location: ../set1.php?set1=$lastname-success");
 				exit();
