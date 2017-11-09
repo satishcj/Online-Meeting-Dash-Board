@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+/*
 if (isset($_POST['submit']))
 {
 	include_once 'dbh.inc.php' ;
@@ -108,6 +108,36 @@ else
 	header("location: ../signup.php");
 	exit();
 }
+*/
+
+if (isset($_POST['submit']))
+{
+	include_once 'dbh.inc.php' ;
+	include_once 'login1.inc.php';
+
+	$firstname = mysqli_real_escape_string($conn,$_POST['firstname']) ;
+	$lastname = mysqli_real_escape_string($conn,$_POST['lastname']) ;
+	$email = mysqli_real_escape_string($conn,$_POST['email']) ;
+	$phone = mysqli_real_escape_string($conn,$_POST['phone']) ;
+	$pwd = mysqli_real_escape_string($conn,$_POST['pwd']) ;
+	$rpwd = mysqli_real_escape_string($conn,$_POST['rpwd']) ;
+
+	$user = new User();
+	$signup=$user->reg_user($firstname,$lastname,$email,$phone,$pwd,$rpwd);
+	
+	if($signup)
+	{
+		header("Location: ../signup.php") ;
+		exit();
+	}
+	else
+	{
+		header("Location: ../signup.php") ;
+		exit() ;
+	}
+
+}
+
 
 
 ?>

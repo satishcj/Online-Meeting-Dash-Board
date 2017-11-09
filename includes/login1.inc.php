@@ -1,79 +1,151 @@
 <?php
+	session_start() ;
+	class User
+	{
+		public $uobj_firstname ;
+		public $uobj_lastname ;
+		public $uobj_email ;
+		protected $uobj_uid ;
+		private $uobj_phone ;
 
-include "db_config.php";
+		public function reg_user($firstname,$lastname,$email,$phone,$pwd,$rpwd)
+		{
+			include "dbh.inc.php";
+			if (empty($firstname)||empty($lastname))
+			{
+				header("location: ../signup.php?signup=$nameempty");
+				$_SESSION['res2'] = 'Please fill the form properly' ;
+				return false ;
+			}
+			elseif (empty($email)) 
+			{
+				header("location: ../signup.php?signup=emailempty");
+				$_SESSION['res2'] = 'Please fill the form properly' ;
+				return false ;
+			}
+			elseif (empty($phone))
+			{
+				header("location: ../signup.php?signup=phoneempty");
+				$_SESSION['res2'] = 'Please fill the form properly' ;
+				return false ;
+			}
+			elseif (empty($pwd))
+			{
+				header("location: ../signup.php?signup=pwdempty");
+				$_SESSION['res2'] = 'Please fill the form properly' ;
+				return false ;
+			}
+			elseif (empty($rpwd))
+			{
+				header("location: ../signup.php?signup=pwdempty");
+				$_SESSION['res2'] = 'Please fill the form properly' ;
+				return false ;
+			}
+			else
+			{
+				//Check for valid inputs
+				if(!preg_match("/^[a-zA-Z]*$/",$firstname) || !preg_match("/^[a-zA-Z]*$/",$lastname))
+				{
+					header("location: ../signup.php?signup=invalidname");
+					$_SESSION['res2'] = 'You have entered an invalid name' ;
+					return false ;
+				}
+				else
+				{
+					//Check if email is valid
+					if(!filter_var($email,FILTER_VALIDATE_EMAIL))
+					{
+						header("location: ../signup.php?signup=invalidemail");
+						$_SESSION['res2'] = 'You have entered an invalid email' ;
+						return false ;
+					}
+					else
+					{
+						if ($pwd!=$rpwd)
+						{
+							header("location: ../signup.php?signup=pwd!=rpwd");
+							$_SESSION['res2'] = 'Passwords dont match' ;
+							return false ;
+						}
+						else
+						{
+							$sql = "SELECT * FROM users WHERE user_email='$email'" ;
+							$result = mysqli_query($conn,$sql);
+							$resultCheck=mysqli_num_rows($result);
 
-class User{
+							if ($resultCheck>0)
+							{
+								header("location: ../signup.php?signup=userexisting");
+								$_SESSION['res2'] = 'User already existing' ;
+								return false ;
+							}
+							else
+							{
+								//Hashing the Password
+								$hashedPwd = password_hash($pwd,PASSWORD_DEFAULT);
+								
+								//Insert into DB
+								$sql = "INSERT INTO users (user_firstname,user_lastname,user_email,user_phone,user_pwd) VALUES ('$firstname','$lastname','$email',$phone,'$hashedPwd') ;" ;
+					
+								mysqli_query($conn,$sql) ;
+								header("location: ../signup.php?signup=success");
+								$_SESSION['res2'] = 'Account Created Successfully' ;
+								return true ;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		public function check_login($email, $pwd)
+		{
+			include "dbh.inc.php";
+			//Check for empty inputs
+			if (empty($email)||empty($pwd))
+			{
+				header("Location: ../login.php?login=empty") ;
+				$_SESSION['res1'] = 'Please fill the form properly' ;
+				return false;	
+			}
+			else
+			{
+				$sql = "SELECT * FROM users WHERE user_email='$email' ; " ;
+				$result = mysqli_query($conn,$sql) ;
+				$resultCheck = mysqli_num_rows($result) ;
+				if ($resultCheck<1)
+				{
+					header("Location: ../login.php?login=norecords") ;
+					$_SESSION['res1'] = 'No Records' ;
+					return false;
+				}
+				else
+				{
+					if ($row=mysqli_fetch_assoc($result))
+					{
+						//Dehashing the Password
+						$hashedPwdCheck = password_verify($pwd, $row['user_pwd']) ;
+						if ($hashedPwdCheck == false)
+						{
+							header("Location: ../login.php?login=pwderror") ;
+							$_SESSION['res1'] = 'You have entered an incorrect password' ;
+							return false;
+						}
+						elseif($hashedPwdCheck == true)
+						{
+							//Login the User
+							$_SESSION['u_email'] = $row['user_email'] ;
+							$_SESSION['u_firstname'] = $row['user_firstname'] ;
+							$_SESSION['u_lastname'] = $row['user_lastname'] ;
+							$_SESSION['u_phone'] = $row['user_phone'] ;
+							$_SESSION['u_id'] = $row['user_id'] ;
+							return true;
+						}
+					}
+				}
+			}
+		}
 
-public $db;
-
-public function __construct(){
-$this->db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-
-if(mysqli_connect_errno()) {
-echo "Error: Could not connect to database.";
-exit;
-}
-}
-
-/*** for registration process ***/
-public function reg_user($name,$username,$password,$email){
-
-$password = md5($password);
-$sql="SELECT * FROM users WHERE uname='$username' OR uemail='$email'";
-
-//checking if the username or email is available in db
-$check = $this->db->query($sql) ;
-$count_row = $check->num_rows;
-
-//if the username is not in db then insert to the table
-if ($count_row == 0){
-$sql1="INSERT INTO users SET uname='$username', upass='$password', fullname='$name', uemail='$email'";
-$result = mysqli_query($this->db,$sql1) or die(mysqli_connect_errno()."Data cannot inserted");
-return $result;
-}
-else { return false;}
-}
-
-/*** for login process ***/
-public function check_login($emailusername, $password){
-
-$password = md5($password);
-$sql2="SELECT uid from users WHERE uemail='$emailusername' or uname='$emailusername' and upass='$password'";
-
-//checking if the username is available in the table
-$result = mysqli_query($this->db,$sql2);
-$user_data = mysqli_fetch_array($result);
-$count_row = $result->num_rows;
-
-if ($count_row == 1) {
-// this login var will use for the session thing
-$_SESSION['login'] = true;
-$_SESSION['uid'] = $user_data['uid'];
-return true;
-}
-else{
-return false;
-}
-}
-
-/*** for showing the username or fullname ***/
-public function get_fullname($uid){
-$sql3="SELECT fullname FROM users WHERE uid = $uid";
-$result = mysqli_query($this->db,$sql3);
-$user_data = mysqli_fetch_array($result);
-echo $user_data['fullname'];
-}
-
-/*** starting the session ***/
-public function get_session(){
-return $_SESSION['login'];
-}
-
-public function user_logout() {
-$_SESSION['login'] = FALSE;
-session_destroy();
-}
-
-}
+	}
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+/*
 if (isset($_POST['submit']))
 {
 	include 'dbh.inc.php' ;
@@ -54,5 +54,32 @@ if (isset($_POST['submit']))
 		}
 	}
 }
+
+*/
+
+	if (isset($_POST['submit']))
+	{
+		include 'dbh.inc.php' ;
+		include_once 'login1.inc.php';
+
+		$email = mysqli_real_escape_string($conn,$_POST['email']) ;
+		$pwd = mysqli_real_escape_string($conn,$_POST['pwd']) ;
+		
+		$user = new User();
+		$login=$user->check_login($email, $pwd);
+
+		if($login)
+		{
+			header("Location: ../home.php") ;
+			exit();
+		}
+		else
+		{
+			header("Location: ../login.php?=$email") ;
+			exit() ;
+			//$_SESSION['res1'] = 'Login Failed' ;
+		}
+	}
+
 
 ?>
